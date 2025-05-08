@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riassunto - Il Barone Rampante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Stili identici alla pagina di riferimento */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #f39c12;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Raleway', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        .article-header {
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            line-height: 1.3;
+        }
+
+        .article-header .subtitle {
+            font-style: italic;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .breadcrumb {
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        .breadcrumb a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Contenuto */
+        .summary-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .summary-intro {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .summary-section {
+            margin-bottom: 40px;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .summary-header h2 {
+            font-family: var(--font-title);
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .summary-header p {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .summary-content {
+            line-height: 1.8;
+        }
+
+        .summary-content p {
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: var(--light-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 8px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .character-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .character-card {
+            flex: 1 1 300px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .character-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .character-card h3 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Sezione temi */
+        .themes-section {
+            background: var(--light-color);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .themes-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .themes-container h2 {
+            font-family: var(--font-title);
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .themes-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .theme-item {
+            margin-bottom: 25px;
+        }
+
+        .theme-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-item h3 i {
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        .article-footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .article-footer h2 {
+            font-family: var(--font-title);
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .back-btn:hover {
+            background: #219653;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .article-header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .summary-container {
+                padding: 30px 20px;
+            }
+            
+            .character-card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header articolo -->
+    <header class="article-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> &raquo; <a href="opere.html">Opere</a> &raquo; <span>Il Barone Rampante</span>
+            </div>
+            <h1>Il Barone Rampante</h1>
+            <p class="subtitle">La ribellione poetica di Cosimo Piovasco di Rondò</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="summary-container">
+            <div class="summary-intro">
+                <p><em>Il Barone Rampante</em> (1957) è il secondo capitolo della "Trilogia degli Antenati" di Italo Calvino. Romanzo filosofico e avventuroso insieme, racconta la storia di Cosimo che a 12 anni sale su un albero e decide di non scendere più. Un'opera che unisce realismo e fiaba, diventata un classico della letteratura mondiale.</p>
+            </div>
+
+            <div class="summary-section">
+                <div class="summary-header">
+                    <h2>Trama</h2>
+                    <p>Una vita tra i rami</p>
+                </div>
+
+                <div class="summary-content">
+                    <p>15 giugno 1767: il giovane Cosimo, figlio del barone Arminio Piovasco di Rondò, rifiuta un piatto di lumache preparato dalla sorella Battista. Per questa ribellione infantile, sale su un albero del giardino di famiglia a Ombrosa (immaginaria località ligure) e decide di non scendere più.</p>
+                    
+                    <div class="highlight-box">
+                        "Fu il 15 di giugno del 1767 che Cosimo Piovasco di Rondò, mio fratello, sedette per l'ultima volta in mezzo a noi."
+                    </div>
+                    
+                    <p>Cosimo organizza la sua vita sugli alberi: impara a cacciare, a procurarsi il cibo, a vestirsi e persino a studiare. Costruisce relazioni con i contadini, con i briganti e con la nobiltà locale, mantenendo sempre la sua posizione arborea.</p>
+                    
+                    <p>Il romanzo segue le sue avventure attraverso i grandi eventi del Settecento: l'Illuminismo, la Rivoluzione Francese, le campagne napoleoniche. Cosimo incontra personaggi storici come Napoleone e Diderot, sempre restando fedele al suo patto con gli alberi.</p>
+                    
+                    <p>La storia si conclude con la misteriosa scomparsa di Cosimo, ormai anziano, che afferra una mongolfiera di passaggio e svanisce nel cielo, mantenendo fino all'ultimo la promessa di non tornare a terra.</p>
+                </div>
+            </div>
+
+            <div class="summary-section">
+                <div class="summary-header">
+                    <h2>Personaggi principali</h2>
+                    <p>La galleria dei personaggi</p>
+                </div>
+
+                <div class="character-list">
+                    <div class="character-card">
+                        <h3><i class="fas fa-tree"></i> Cosimo</h3>
+                        <p>Protagonista assoluto, ribelle per vocazione. La sua scelta di vivere sugli alberi è un atto di libertà assoluta che diventa una filosofia di vita.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-book"></i> Biagio</h3>
+                        <p>Fratello minore di Cosimo e narratore della storia. Rappresenta il punto di vista "terreno" e la normalità contrapposta alla scelta radicale del fratello.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-female"></i> Viola</h3>
+                        <p>Figlia dei marchesi d'Ondariva, amore giovanile e poi adulto di Cosimo. Rappresenta il legame con il mondo "normale" e la complessità dei sentimenti.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-crown"></i> Barone Arminio</h3>
+                        <p>Padre di Cosimo, rappresentante dell'aristocrazia in declino. Personaggio grottesco e patetico, incapace di comprendere la ribellione del figlio.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-utensils"></i> Battista</h3>
+                        <p>Sorella maggiore di Cosimo, autrice del fatidico piatto di lumache. Figura inquietante e repressa, simbolo delle costrizioni familiari.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione temi -->
+    <section class="themes-section">
+        <div class="themes-container">
+            <h2>Temi principali</h2>
+            <div class="themes-content">
+                <div class="theme-item">
+                    <h3><i class="fas fa-bullseye"></i> La ribellione individuale</h3>
+                    <p>Cosimo incarna la scelta radicale di vivere secondo i propri principi. La sua disobbedienza non è capriccio ma coerenza esistenziale, una forma di resistenza alle convenzioni.</p>
+                </div>
+                
+                <div class="theme-item">
+                    <h3><i class="fas fa-balance-scale"></i> Libertà e responsabilità</h3>
+                    <p>Vivendo sugli alberi, Cosimo dimostra che la vera libertà non è evasione ma scelta consapevole. La sua vita "rampante" è piena di regole autoimposte.</p>
+                </div>
+                
+                <div class="theme-item">
+                    <h3><i class="fas fa-eye"></i> Diversi punti di vista</h3>
+                    <p>La prospettiva arborea di Cosimo offre una visione alternativa della società. Calvino esplora come cambiando punto di vista cambino tutte le relazioni umane.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione stile -->
+    <section class="summary-container" style="background: #f8f9fa; margin-top: 0;">
+        <div class="summary-header">
+            <h2>Stile e struttura</h2>
+            <p>Tra fiaba e romanzo filosofico</p>
+        </div>
+        
+        <div class="summary-content">
+            <p>Calvino mescola generi e registri:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Tono fiabesco</strong>: la premessa surreale è trattata con realismo</li>
+                <li><strong>Narrazione storica</strong>: accurato contesto settecentesco</li>
+                <li><strong>Filosofia esistenziale</strong>: profondi interrogativi sul senso della vita</li>
+                <li><strong>Metaletteratura</strong>: Biagio come narratore consapevole</li>
+            </ul>
+            
+            <div class="highlight-box" style="background: #e8f4f8; border-left: 4px solid var(--accent-color);">
+                "Per essere veramente liberi, bisogna essere servi di qualcosa. Forse della propria volontà."
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione citazioni -->
+    <section class="themes-section" style="background: #eaf7ea;">
+        <div class="themes-container">
+            <h2>Citazioni celebri</h2>
+            <div class="themes-content">
+                <div class="highlight-box">
+                    "Chi vuole guardare bene la terra deve tenersi alla distanza necessaria."
+                </div>
+                
+                <div class="highlight-box" style="background: #f0f7ff; border-left: 4px solid var(--accent-color);">
+                    "La rivoluzione la fanno gli uomini integri, quelli che sanno stare soli."
+                </div>
+                
+                <div class="highlight-box" style="background: #fff8f0; border-left: 4px solid #e74c3c;">
+                    "Non è vero che si diventa adulti. Io sono rimasto bambino, solo che gli anni passano."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="article-footer">
+        <div class="container">
+            <h2>Esplora la Trilogia degli Antenati</h2>
+            <a href="index.html" class="back-btn">Scopri gli altri romanzi</a>
+        </div>
+    </footer>
+</body>
+</html>

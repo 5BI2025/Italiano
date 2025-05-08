@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riassunto - I sentieri dei nidi di ragno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Stili ereditati dalla pagina principale */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Raleway', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        .article-header {
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.istoreto.it/wp-content/uploads/2020/04/partigiani-valpellice-1944.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            line-height: 1.3;
+        }
+
+        .article-header .subtitle {
+            font-style: italic;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .breadcrumb {
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        .breadcrumb a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Contenuto articolo */
+        .summary-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .summary-intro {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .summary-section {
+            margin-bottom: 40px;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .summary-header h2 {
+            font-family: var(--font-title);
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .summary-header p {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .summary-content {
+            line-height: 1.8;
+        }
+
+        .summary-content p {
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: var(--light-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 8px;
+            margin: 30px 0;
+        }
+
+        .character-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .character-card {
+            flex: 1 1 300px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .character-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .character-card h3 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Sezione temi */
+        .themes-section {
+            background: var(--light-color);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .themes-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .themes-container h2 {
+            font-family: var(--font-title);
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .themes-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .theme-item {
+            margin-bottom: 25px;
+        }
+
+        .theme-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-item h3 i {
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        .article-footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .article-footer h2 {
+            font-family: var(--font-title);
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .back-btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .article-header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .summary-container {
+                padding: 30px 20px;
+            }
+            
+            .character-card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header articolo -->
+    <header class="article-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> &raquo; <a href="opere.html">Opere</a> &raquo; <span>I sentieri dei nidi di ragno</span>
+            </div>
+            <h1>I sentieri dei nidi di ragno</h1>
+            <p class="subtitle">Il romanzo d'esordio di Italo Calvino sulla Resistenza partigiana</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="summary-container">
+            <div class="summary-intro">
+                <p><em>I sentieri dei nidi di ragno</em> (1947) è il primo romanzo di Italo Calvino, ambientato durante la Resistenza italiana contro il fascismo. Attraverso gli occhi del giovane Pin, Calvino racconta la guerra partigiana in modo antiretorico, mostrandone le luci e le ombre, gli eroismi e le miserie. Un'opera fondamentale che segna l'inizio della carriera di uno dei più importanti scrittori italiani del Novecento.</p>
+            </div>
+
+            <div class="summary-section">
+                <div class="summary-header">
+                    <h2>Trama</h2>
+                    <p>La storia attraverso gli occhi di un bambino</p>
+                </div>
+
+                <div class="summary-content">
+                    <p>Il romanzo è ambientato in Liguria durante l'ultima fase della Seconda Guerra Mondiale, nel periodo della Resistenza partigiana. Il protagonista è Pin, un bambino orfano di madre e con un padre assente, che vive con la sorella maggiore, una prostituta.</p>
+                    
+                    <p>Pin frequenta l'osteria del paese dove gli adulti lo usano come animatore delle serate, costringendolo a cantare canzoni oscene. Un giorno, per impressionare gli avventori, ruba la pistola di un soldato tedesco cliente di sua sorella e la nasconde in un luogo segreto che solo i bambini conoscono: il posto dei nidi di ragno.</p>
+                    
+                    <p>Scoperto il furto, Pin viene arrestato e incarcerato. In prigione conosce Lupo Rosso, un partigiano che lo aiuta a fuggire. Pin si unisce così a una brigata partigiana comandata da Dritto, sperando di trovare finalmente un luogo dove sentirsi accettato.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"Forse i grandi non sanno dove fanno il nido i ragni, forse solo i bambini lo sanno: in certi posti del terreno, tra le stoppie e i sassi, ci sono dei buchini coperti da una ragnatela che pare un coperchietto, e sotto c'è il buco dove il ragno sta nascosto."</p>
+                    </div>
+                    
+                    <p>Nella banda partigiana, Pin osserva con occhio disincantato le contraddizioni degli adulti: gli ideali si mescolano a meschinità, l'eroismo alla vigliaccheria. Dopo varie vicende, tra cui lo scioglimento della banda e la morte di diversi partigiani, Pin ritroverà la pistola rubata con l'aiuto del nuovo amico Cugino, un ex carabiniere disertore.</p>
+                    
+                    <p>Il romanzo si conclude con Pin e Cugino che, dopo aver recuperato la pistola, si allontanano insieme verso un futuro incerto, mentre in lontananza si sentono ancora gli spari della guerra.</p>
+                </div>
+            </div>
+
+            <div class="summary-section">
+                <div class="summary-header">
+                    <h2>Personaggi principali</h2>
+                    <p>Una galleria di figure indimenticabili</p>
+                </div>
+
+                <div class="character-list">
+                    <div class="character-card">
+                        <h3><i class="fas fa-child"></i> Pin</h3>
+                        <p>Protagonista del romanzo, è un bambino precoce e sfortunato che vive ai margini della società. Il suo punto di vista ingenuo ma acuto permette a Calvino di mostrare la Resistenza in modo originale e disincantato.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-user-friends"></i> Cugino</h3>
+                        <p>Ex carabiniere disertore, diventa l'unico vero amico di Pin. Rappresenta la figura del "buon adulto" che Pin non ha mai avuto, capace di comprendere il mondo dei bambini.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-flag"></i> Dritto</h3>
+                        <p>Comandante della brigata partigiana a cui si unisce Pin. Figura contraddittoria, mescola coraggio e incapacità, idealismo e opportunismo.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-book"></i> Kim</h3>
+                        <p>Commissario politico della brigata, intellettuale che cerca di dare un senso ideologico alla lotta partigiana. Rappresenta la visione più politica della Resistenza.</p>
+                    </div>
+                    
+                    <div class="character-card">
+                        <h3><i class="fas fa-shield-alt"></i> Ferriera</h3>
+                        <p>Comandante militare, pragmatico e concentrato sull'efficienza della lotta armata. Si scontra spesso con Kim sulle strategie da adottare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione temi -->
+    <section class="themes-section">
+        <div class="themes-container">
+            <h2>Temi principali</h2>
+            <div class="themes-content">
+                <div class="theme-item">
+                    <h3><i class="fas fa-eye"></i> La Resistenza antiretorica</h3>
+                    <p>Calvino rappresenta la Resistenza senza retorica, mostrandone tutte le contraddizioni. I partigiani non sono eroi senza macchia, ma uomini con virtù e difetti, che combattono per motivazioni spesso molto diverse tra loro.</p>
+                </div>
+                
+                <div class="theme-item">
+                    <h3><i class="fas fa-child"></i> L'infanzia perduta</h3>
+                    <p>Attraverso Pin, Calvino esplora il tema dell'infanzia rubata dalla guerra. Pin è costretto a crescere troppo in fretta, ma conserva uno sguardo bambino che gli permette di vedere ciò che gli adulti non vedono.</p>
+                </div>
+                
+                <div class="theme-item">
+                    <h3><i class="fas fa-search"></i> La ricerca di identità</h3>
+                    <p>Pin cerca disperatamente un posto nel mondo e una figura paterna. La sua storia è un percorso di formazione anomalo, segnato dalla violenza e dalla precarietà della guerra.</p>
+                </div>
+                
+                <div class="theme-item">
+                    <h3><i class="fas fa-balance-scale"></i> Etica e guerra</h3>
+                    <p>Il romanzo pone domande scomode sulla natura della guerra e sulla moralità individuale. Calvino mostra come il contesto bellico possa distorcere i valori e come le scelte etiche siano spesso ambigue.</p> </div> </div> </div> </section>
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <a href="index.html" class="back-btn">Torna alla Home</a>
+                    </div>
+                    
+</body></html>

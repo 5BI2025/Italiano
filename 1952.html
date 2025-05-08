@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riassunto - Il visconte dimezzato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Stili ereditati dalla pagina principale */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #e74c3c;
+        --accent-color: #3498db;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+        --text-color: #333;
+        --text-light: #7f8c8d;
+        --font-title: 'Playfair Display', serif;
+        --font-body: 'Raleway', sans-serif;
+    }
+
+    body {
+        font-family: var(--font-body);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: #f9f9f9;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    /* Header */
+    .article-header {
+        height: 60vh;
+        min-height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.istoreto.it/wp-content/uploads/2020/04/partigiani-valpellice-1944.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .article-header h1 {
+        font-family: var(--font-title);
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        line-height: 1.3;
+    }
+
+    .article-header .subtitle {
+        font-style: italic;
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto 30px;
+    }
+
+    .breadcrumb {
+        padding: 20px 0;
+        font-size: 0.9rem;
+        color: #bdc3c7;
+    }
+
+    .breadcrumb a {
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .breadcrumb a:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Contenuto articolo */
+    .summary-container {
+        max-width: 900px;
+        margin: 0 auto 80px;
+        background: white;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .summary-intro {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        line-height: 1.8;
+    }
+
+    .summary-section {
+        margin-bottom: 40px;
+    }
+
+    .summary-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .summary-header h2 {
+        font-family: var(--font-title);
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .summary-header p {
+        color: var(--text-light);
+        font-style: italic;
+    }
+
+    .summary-content {
+        line-height: 1.8;
+    }
+
+    .summary-content p {
+        margin-bottom: 20px;
+    }
+
+    .highlight-box {
+        background: var(--light-color);
+        border-left: 4px solid var(--secondary-color);
+        padding: 20px;
+        border-radius: 0 8px 8px 8px;
+        margin: 30px 0;
+    }
+
+    .character-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 30px 0;
+    }
+
+    .character-card {
+        flex: 1 1 300px;
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .character-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .character-card h3 i {
+        margin-right: 10px;
+        color: var(--accent-color);
+    }
+
+    /* Sezione temi */
+    .themes-section {
+        background: var(--light-color);
+        padding: 60px 0;
+        margin: 60px 0;
+    }
+
+    .themes-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .themes-container h2 {
+        font-family: var(--font-title);
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .themes-content {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .theme-item {
+        margin-bottom: 25px;
+    }
+
+    .theme-item h3 {
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .theme-item h3 i {
+        margin-right: 10px;
+    }
+
+    /* Footer */
+    .article-footer {
+        background: var(--dark-color);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .article-footer h2 {
+        font-family: var(--font-title);
+        margin-bottom: 30px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--secondary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+    }
+
+    .back-btn:hover {
+        background: #c0392b;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .article-header h1 {
+            font-size: 2.2rem;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .summary-container {
+            padding: 30px 20px;
+        }
+        
+        .character-card {
+            flex: 1 1 100%;
+        }
+    }
+</style>
+</head>
+<body>
+  <header class="article-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Italo_Calvino_%281955%29.jpg/800px-Italo_Calvino_%281955%29.jpg');">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &raquo; <a href="opere.html">Opere</a> &raquo; <span>Il visconte dimezzato</span>
+      </div>
+      <h1>Il visconte dimezzato</h1>
+      <p class="subtitle">Una favola filosofica sul bene, il male e la ricerca dell'integrità</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="summary-container">
+      <div class="summary-intro">
+        <p><em>Il visconte dimezzato</em> (1952) è il primo romanzo della trilogia "I nostri antenati" di Italo Calvino. Con toni fiabeschi e simbolici, racconta la storia del visconte Medardo di Terralba, ferito a metà da una cannonata in guerra, che torna nel suo feudo diviso in due metà: una malvagia e una buona. Un’allegoria sull’incompletezza dell’essere umano e sul bisogno di riconciliare le proprie contraddizioni.</p>
+      </div>
+
+      <div class="summary-section">
+        <div class="summary-header">
+          <h2>Trama</h2>
+          <p>La parabola grottesca del visconte diviso in due</p>
+        </div>
+        <div class="summary-content">
+          <p>Il giovane visconte Medardo di Terralba parte per combattere contro i Turchi. Durante una battaglia viene colpito da una cannonata e si ritrova letteralmente diviso a metà. Da quel momento in poi, le due metà vivono separate: il Gramo, incarnazione del male, e il Buono, incarnazione della bontà estrema.</p>
+          <p>Il Gramo torna a Terralba e semina terrore tra i sudditi con leggi crudeli, esecuzioni arbitrarie e un comportamento spietato. Poco dopo fa ritorno anche la metà buona, che si distingue per la sua generosità ma risulta spesso inetta e incapace di affrontare la realtà.</p>
+          <div class="highlight-box">
+            <p>"C'era un uomo mezzo, anzi ce n'erano due, ma erano lo stesso uomo. E così io imparai cosa significa essere dimezzati."</p>
+          </div>
+          <p>Entrambe le metà si innamorano della stessa donna, Pamela, una contadina intelligente e vivace, che però è confusa dalla loro opposizione estrema. Alla fine, dopo molte peripezie, le due metà si affrontano in un duello. Rimangono entrambe ferite e, grazie all'intervento di un medico, vengono ricucite insieme in un unico corpo.</p>
+          <p>Il visconte torna così a essere un uomo intero, capace di coniugare bontà e durezza, e finalmente riesce a vivere un’esistenza piena e armoniosa. Sposa Pamela, e nel feudo torna la serenità.</p>
+        </div>
+      </div>
+
+      <div class="summary-section">
+        <div class="summary-header">
+          <h2>Personaggi principali</h2>
+          <p>Figure simboliche di un mondo diviso</p>
+        </div>
+        <div class="character-list">
+          <div class="character-card">
+            <h3><i class="fas fa-user-alt"></i> Medardo di Terralba</h3>
+            <p>Il protagonista, visconte diviso in due: da un lato il Gramo, crudele e distruttivo; dall’altro il Buono, altruista ma inefficace. Solo riunendo le sue due metà ritroverà la propria umanità.</p>
+          </div>
+
+          <div class="character-card">
+            <h3><i class="fas fa-heart"></i> Pamela</h3>
+            <p>Contadina sagace e indipendente, amata da entrambe le metà del visconte. Rappresenta il buon senso e la concretezza, ed è l’unica a desiderare l’integrità dell’essere umano.</p>
+          </div>
+
+          <div class="character-card">
+            <h3><i class="fas fa-child"></i> Il narratore</h3>
+            <p>Un giovane parente di Medardo, osservatore curioso degli eventi. Il suo sguardo innocente e ironico guida il lettore nella scoperta del mondo grottesco di Terralba.</p>
+          </div>
+
+          <div class="character-card">
+            <h3><i class="fas fa-user-nurse"></i> Il medico d’ospedale</h3>
+            <p>Figura chiave nel finale, è colui che riesce a riunire chirurgicamente le due metà del visconte, permettendo la sua rinascita come uomo completo.</p>
+          </div>
+
+          <div class="character-card">
+            <h3><i class="fas fa-tree"></i> I lebbrosi e gli eremiti</h3>
+            <p>Gruppi emarginati che il visconte incontra nel corso della storia. Rappresentano simbolicamente il rifiuto della società e la ricerca di una vita autentica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="themes-section">
+    <div class="themes-container">
+      <h2>Temi principali</h2>
+      <div class="themes-content">
+        <div class="theme-item">
+          <h3><i class="fas fa-adjust"></i> La dualità dell’essere</h3>
+          <p>Il romanzo esplora la divisione tra bene e male all’interno dell’uomo, mostrando come nessuno possa essere solo buono o solo cattivo. L’integrità si raggiunge solo accettando entrambe le nature.</p>
+        </div>
+
+        <div class="theme-item">
+          <h3><i class="fas fa-puzzle-piece"></i> L’incompletezza</h3>
+          <p>Essere "dimezzati" significa vivere una vita incompleta. Calvino riflette sull’identità umana e sull'importanza dell’equilibrio tra razionalità ed emozioni, forza e sensibilità.</p>
+        </div>
+
+        <div class="theme-item">
+          <h3><i class="fas fa-book-reader"></i> L’allegoria fiabesca</h3>
+          <p>Con uno stile leggero e simbolico, Calvino usa la struttura della fiaba per trattare temi profondi come l’etica, la responsabilità individuale e la libertà interiore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="text-align: center; margin-bottom: 40px;">
+    <a href="index.html" class="back-btn">Torna alla Home</a>
+  </div>
+</body>
+</html>
